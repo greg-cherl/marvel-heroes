@@ -4,8 +4,6 @@
 		"noImplicitAny": true,
 		"module": "ESNext",
 		"target": "es5",
-		// Указывая react-jsx, исключаем импорт React в каждой компоненте
-		// "jsx": "react",
 		"jsx": "react-jsx",
 		"allowJs": true,
 		"moduleResolution": "node",
