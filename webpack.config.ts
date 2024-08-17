@@ -14,6 +14,7 @@ export default (env: EnvVariablesType) => {
 		output: path.resolve(__dirname, 'build'),
 		entry: path.resolve(__dirname, 'apps', 'index.tsx'),
 		html: path.resolve(__dirname, 'public', 'index.html'),
+		public: path.resolve(__dirname, 'public'),
 		src: path.resolve(__dirname, 'src'),
 	}
 

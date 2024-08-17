@@ -4,6 +4,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { Configuration } from 'webpack'
 import { BuildOptionsType } from './types/types'
+import path from 'path'
 
 export const buildPlugins = (
 	options: BuildOptionsType
@@ -14,6 +15,7 @@ export const buildPlugins = (
 	const plugins: Configuration['plugins'] = [
 		new HtmlWebpackPlugin({
 			template: options.paths.html,
+			favicon: path.resolve(options.paths.public, 'favicon.ico'),
 		}),
 	]
 
