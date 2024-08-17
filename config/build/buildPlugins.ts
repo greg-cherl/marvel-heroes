@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import { Configuration } from 'webpack'
 import { BuildOptionsType } from './types/types'
 
@@ -14,6 +15,10 @@ export const buildPlugins = (
 			template: options.paths.html,
 		}),
 	]
+
+	if (isDev) {
+		plugins.push(new ForkTsCheckerWebpackPlugin())
+	}
 
 	if (isProd) {
 		plugins.push(
