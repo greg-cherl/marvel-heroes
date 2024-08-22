@@ -1,11 +1,9 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Home } from '@/pages/home/Home'
 
 export const App = () => {
 	return (
 		<>
-			<div>Start</div>
-			<Link to={'/all-heroes'}>all heroes</Link>
-			<Outlet />
+			<Home />
 		</>
 	)
 }

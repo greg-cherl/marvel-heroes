@@ -1,3 +1,5 @@
+import { Navigation } from '@/components/navigation/Navigation'
+
 export const AllHeroes = () => {
-	return <div>All Heroes</div>
+	return <Navigation />
 }

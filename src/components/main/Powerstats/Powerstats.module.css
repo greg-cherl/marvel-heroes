@@ -1,0 +1,20 @@
+.powerstats {
+	text-transform: uppercase;
+}
+
+.powerstats-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	box-shadow: 0 5px 7px 0 rgba(0, 0, 0, 0.5);
+}
+.powerstats-label {
+	letter-spacing: 2px;
+	border-radius: 7px;
+	opacity: 0.6;
+}
+.powerstats-value {
+	color: #f2c10e;
+	font-weight: 700;
+}
