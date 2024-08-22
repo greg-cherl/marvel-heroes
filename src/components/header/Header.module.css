@@ -1,0 +1,81 @@
+.header {
+	font-size: 80px;
+}
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.marvel,
+.studios {
+	padding: 0 6px;
+}
+
+.marvel {
+	z-index: 10;
+	font-weight: 800;
+	font-size: 5rem;
+	padding: 0 6px;
+	transform: translateX(95px);
+	background-color: #e12835;
+	border: solid 1px rgba(255, 255, 255, 0.2);
+	transform: translateX(95px);
+	animation: slide-out-X 750ms ease forwards;
+}
+
+.studios {
+	font-weight: 500;
+	letter-spacing: -0.3rem;
+	transform: translateX(-95px);
+	color: transparent;
+	animation: slide-out-X 750ms ease forwards,
+		show-text 300ms linear forwards 1500ms;
+}
+
+.studios:after,
+.studios:before {
+	content: '';
+	display: block;
+	height: 3px;
+	position: absolute;
+	background-color: #fff;
+	display: block;
+	left: 0.4rem;
+	right: 0.4rem;
+}
+
+.studios:before {
+	transform: translateY(2.9rem);
+	animation: slide-out-Y 300ms ease forwards 750ms;
+}
+
+.studios:after {
+	transform: translateY(-2.9rem);
+	animation: slide-out-Y 300ms ease forwards 750ms;
+}
+
+@keyframes slide-out-X {
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-out-X {
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-out-Y {
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes show-text {
+	100% {
+		color: #fff;
+	}
+}

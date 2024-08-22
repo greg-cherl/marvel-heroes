@@ -1,0 +1,14 @@
+.biography-item {
+	margin: 20px 0;
+	text-transform: capitalize;
+	font-weight: 600;
+	font-size: 24px;
+}
+.biography-label {
+	font-weight: 600;
+	color: #505050;
+	margin-right: 15px;
+}
+.biography-value {
+	font-weight: 300;
+}

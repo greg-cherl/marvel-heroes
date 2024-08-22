@@ -1,0 +1,24 @@
+.appearance {
+	font-size: 20px;
+}
+.appearance-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 20px 0;
+}
+.appearance-label {
+	text-transform: capitalize;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-right: 4rem;
+}
+.appearance-value {
+	width: 100px;
+	font-weight: 600;
+	text-transform: capitalize;
+	background-color: #f64445;
+	border-radius: 15px;
+	text-align: center;
+}
