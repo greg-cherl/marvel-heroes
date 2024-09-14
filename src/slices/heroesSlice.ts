@@ -14,6 +14,7 @@ type heroesSearchType = {
 	status: 'idle' | 'loading' | 'succeeded' | 'failed'
 	error: string | null
 	searchValue: string
+	hero: any
 }
 
 const initialState: heroesSearchType = {
@@ -21,6 +22,7 @@ const initialState: heroesSearchType = {
 	status: 'idle',
 	error: null,
 	searchValue: '',
+	hero: {},
 }
 
 const heroesSlice = createSlice({
@@ -29,6 +31,9 @@ const heroesSlice = createSlice({
 	reducers: {
 		setSearchValue: (state, action) => {
 			state.searchValue = action.payload
+		},
+		setHero: (state, action) => {
+			state.hero = action.payload
 		},
 	},
 	extraReducers: builder => {
@@ -47,5 +52,5 @@ const heroesSlice = createSlice({
 	},
 })
 
-export const { setSearchValue } = heroesSlice.actions
+export const { setSearchValue, setHero } = heroesSlice.actions
 export default heroesSlice.reducer

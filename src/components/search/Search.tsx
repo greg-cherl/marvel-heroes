@@ -1,6 +1,6 @@
 import classes from './Search.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { searchHero, setSearchValue } from '@/slices/heroesSlice'
+import { searchHero, setHero, setSearchValue } from '@/slices/heroesSlice'
 
 export const Search = () => {
 	const dispatch = useDispatch()
@@ -11,6 +11,10 @@ export const Search = () => {
 		dispatch(setSearchValue(event.target.value))
 		//@ts-ignore
 		dispatch(searchHero(event.target.value))
+	}
+
+	const handleSetHero = (hero: any) => {
+		dispatch(setHero(hero))
 	}
 
 	return (
@@ -25,7 +29,11 @@ export const Search = () => {
 				/>
 				<div className={classes['search-list']}>
 					{heroes.data?.map((hero: any) => (
-						<div key={hero.id} className={classes['search-item']}>
+						<div
+							key={hero.id}
+							className={classes['search-item']}
+							onClick={() => handleSetHero(hero)}
+						>
 							<img
 								className={classes['image']}
 								src={hero.image.url}

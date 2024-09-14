@@ -1,19 +1,23 @@
+import { FC } from 'react'
 import classes from './Connections.module.css'
 
-export const Connections = () => {
+type PropsType = {
+	data: any
+}
+
+export const Connections: FC<PropsType> = ({ data }) => {
 	return (
 		<div className={classes['connections']}>
 			<div className={classes['connections-item']}>
 				<div className={classes['connections-label']}>group--affiliation</div>
 				<div className={classes['connections-value']}>
-					Batman Family, Justice League Unlimited
+					{data?.['group-affiliation']}
 				</div>
 			</div>
 			<div className={classes['connections-item']}>
 				<div className={classes['connections-label']}>relatives</div>
 				<div className={classes['connections-value']}>
-					Bruce Wayne (biological father), Warren McGinnis (father, deceased),
-					Mary McGinnis (mother), Matt McGinnis (brother)
+					{data?.['relatives']}
 				</div>
 			</div>
 		</div>
