@@ -8,9 +8,6 @@ export const Navigation = () => {
 				<li className={classes['menu-item']}>
 					<Link to={'/'}>Home</Link>
 				</li>
-				<li className={classes['menu-item']}>
-					<Link to={'/all-heroes'}>All Heroes</Link>
-				</li>
 			</ul>
 		</nav>
 	)

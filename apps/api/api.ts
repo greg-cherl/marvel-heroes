@@ -7,7 +7,7 @@ const instance = axios.create({
 })
 
 export const API = {
-	getHeroes(id: string) {
-		return instance.get(`${id}`)
+	searchHero(hero: string) {
+		return instance.get(`/search/${hero}`)
 	},
 }
