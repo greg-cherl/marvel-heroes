@@ -40,6 +40,7 @@
 	align-items: center;
 	background-color: #0a0a0a;
 	padding: 0.4rem 0;
+	cursor: pointer;
 }
 
 .image {
@@ -49,5 +50,4 @@
 
 .hero-name {
 	font-weight: 700;
-	cursor: pointer;
 }
