@@ -6,6 +6,7 @@ import { Biography } from './Biography/Biography'
 import { Appearance } from './Appearance/Appearance'
 import { Work } from './Work/Work'
 import { Connections } from './Connections/Connections'
+import { Search } from '../search/Search'
 
 export const Main = () => {
 	const [activeTab, setActiveTab] = useState<string>('powerstats')
@@ -21,6 +22,7 @@ export const Main = () => {
 	return (
 		<div className={classes['main']}>
 			<div className={classes['wrapper-card']}>
+				<Search />
 				<div className={classes['hero-card']}>
 					<div className={classes['wrapper-image']}>
 						<img
