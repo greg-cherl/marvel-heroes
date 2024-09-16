@@ -1,11 +1,22 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { API } from '../../apps/api/api'
 
-export const searchHero = createAsyncThunk(
-	'heroes/searchHero',
-	async (hero: string) => {
-		const response = await API.searchHero(hero)
-		return response.data
+type fetchHeroType = {
+	type: 'search' | 'getById'
+	value: string
+}
+
+export const fetchHero = createAsyncThunk(
+	'heroes/fetchHero',
+	async ({ type, value }: fetchHeroType) => {
+		if (type === 'search') {
+			const response = await API.searchHero(value)
+			return response.data
+		}
+		if (type === 'getById') {
+			const response = await API.getHero(value)
+			return response.data
+		}
 	}
 )
 
@@ -38,14 +49,19 @@ const heroesSlice = createSlice({
 	},
 	extraReducers: builder => {
 		builder
-			.addCase(searchHero.pending, state => {
+			.addCase(fetchHero.pending, state => {
 				state.status = 'loading'
 			})
-			.addCase(searchHero.fulfilled, (state, action) => {
-				state.status = 'succeeded'
-				state.data = action.payload.results
+			.addCase(fetchHero.fulfilled, (state, action) => {
+				if (action.payload.results) {
+					state.status = 'succeeded'
+					state.data = action.payload.results
+				} else {
+					state.status = 'succeeded'
+					state.hero = action.payload
+				}
 			})
-			.addCase(searchHero.rejected, (state, action) => {
+			.addCase(fetchHero.rejected, (state, action) => {
 				state.status = 'failed'
 				state.error = action.error.message
 			})

@@ -1,22 +1,22 @@
 import classes from './Search.module.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { searchHero, setHero, setSearchValue } from '@/slices/heroesSlice'
+import { FC } from 'react'
 
-export const Search = () => {
-	const dispatch = useDispatch()
-	const searchValue = useSelector((state: any) => state.heroes.searchValue)
-	const heroes = useSelector((state: any) => state.heroes)
+type PropsType = {
+	handleChange: (event: any, showList: boolean) => void
+	handleSetHero: (hero: any) => void
+	searchValue: string
+	searchHeroes: any
+	showList: boolean
+}
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		dispatch(setSearchValue(event.target.value))
-		//@ts-ignore
-		dispatch(searchHero(event.target.value))
-	}
-
-	const handleSetHero = (hero: any) => {
-		dispatch(setHero(hero))
-	}
-
+export const Search: FC<PropsType> = ({
+	handleChange,
+	handleSetHero,
+	searchValue,
+	searchHeroes,
+	showList,
+}) => {
+	console.log('searchHeroes', searchHeroes)
 	return (
 		<>
 			<form className={classes['search']}>
@@ -25,24 +25,26 @@ export const Search = () => {
 					type='text'
 					placeholder='Search your superhero'
 					value={searchValue}
-					onChange={handleChange}
+					onChange={event => handleChange(event, true)}
 				/>
-				<div className={classes['search-list']}>
-					{heroes.data?.map((hero: any) => (
-						<div
-							key={hero.id}
-							className={classes['search-item']}
-							onClick={() => handleSetHero(hero)}
-						>
-							<img
-								className={classes['image']}
-								src={hero.image.url}
-								alt={hero.name}
-							/>
-							<p className={classes['hero-name']}>{hero.name}</p>
-						</div>
-					))}
-				</div>
+				{showList && (
+					<div className={classes['search-list']}>
+						{searchHeroes.data?.map((hero: any) => (
+							<div
+								key={hero.id}
+								className={classes['search-item']}
+								onClick={() => handleSetHero(hero)}
+							>
+								<img
+									className={classes['image']}
+									src={hero.image.url}
+									alt={hero.name}
+								/>
+								<p className={classes['hero-name']}>{hero.name}</p>
+							</div>
+						))}
+					</div>
+				)}
 			</form>
 		</>
 	)

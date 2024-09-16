@@ -10,4 +10,7 @@ export const API = {
 	searchHero(hero: string) {
 		return instance.get(`/search/${hero}`)
 	},
+	getHero(id: string) {
+		return instance.get(`${id}`)
+	},
 }
