@@ -18,16 +18,11 @@ export const Appearance: FC<PropsType> = ({ data }) => {
 			</div>
 			<div className={classes['appearance-item']}>
 				<div className={classes['appearance-label']}>height</div>
-				<div className={classes['appearance-value']}>
-					{`${data?.['height'][0]} ${data?.['height'][1]}`}
-				</div>
+				<div className={classes['appearance-value']}>{data?.['height'][0]}</div>
 			</div>
 			<div className={classes['appearance-item']}>
 				<div className={classes['appearance-label']}>weight</div>
-				<div className={classes['appearance-value']}>
-					{' '}
-					{`${data?.['weight'][0]} ${data?.['weight'][1]}`}
-				</div>
+				<div className={classes['appearance-value']}>{data?.['weight'][0]}</div>
 			</div>
 			<div className={classes['appearance-item']}>
 				<div className={classes['appearance-label']}>eye-color</div>

@@ -1,9 +1,15 @@
-import { Home } from '@/pages/home/Home'
+import { Header } from '@/components/header/Header'
+import { Main } from '@/components/main/Main'
 
 export const App = () => {
 	return (
 		<>
-			<Home />
+			<section>
+				<Header />
+			</section>
+			<section>
+				<Main />
+			</section>
 		</>
 	)
 }
